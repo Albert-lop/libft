@@ -6,7 +6,7 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:17:07 by alberlop          #+#    #+#             */
-/*   Updated: 2024/04/25 16:21:51 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/03 17:57:45 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,3 +36,5 @@ int	ft_atoi(const char *str)
 	}
 	return (res * neg);
 }
+
+int main tus muertos
