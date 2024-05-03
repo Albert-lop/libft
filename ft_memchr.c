@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_menchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 19:29:18 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/02 20:33:32 by alberlop         ###   ########.fr       */
+/*   Created: 2024/04/17 17:21:22 by alberlop          #+#    #+#             */
+/*   Updated: 2024/04/17 18:36:08 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	c = c % 256;
-	while (*s)
+	char	*str;
+	size_t	i;
+
+	i = 0;
+	str = (char *)s;
+	while (i < n)
 	{
-		if (*s == c)
-			return ((char *)s);
-		s++;
+		if ((unsigned char)str[i] == (unsigned char)c)
+			return ((char *)s + i);
+		i++;
 	}
-	if ((char) c == '\0')
-		return ((char *)s);
 	return (NULL);
 }

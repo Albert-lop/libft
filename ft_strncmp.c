@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 19:29:18 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/02 20:33:32 by alberlop         ###   ########.fr       */
+/*   Created: 2024/04/30 21:24:07 by alberlop          #+#    #+#             */
+/*   Updated: 2024/04/30 23:54:31 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	c = c % 256;
-	while (*s)
+	size_t	i;
+
+	i = 0;
+	while (i < n)
 	{
-		if (*s == c)
-			return ((char *)s);
-		s++;
+		if (s1[i] != s2[i] || s1[i] == '\0' || s2[i] == '\0')
+		{
+			return (((unsigned char)s1[i]) - ((unsigned char)s2[i]));
+		}
+		i++;
 	}
-	if ((char) c == '\0')
-		return ((char *)s);
-	return (NULL);
+	return (0);
 }

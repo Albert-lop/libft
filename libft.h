@@ -6,15 +6,17 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:00:49 by alberlop          #+#    #+#             */
-/*   Updated: 2024/04/17 18:42:30 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/03 16:45:03 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
+# include <string.h>
 /// @brief 
 /// @param c 
 /// @return return 1 si es un numero entero retur 0 si es otra cosa
@@ -78,5 +80,52 @@ void	*ft_memmove(void *dst, const void *src, size_t n);
 /// @param n 
 /// @return un puntero a la 1 aparición del carter c en str o NULL si no hay
 void	*ft_memchr(const void *s, int c, size_t n);
+/// @brief 
+/// @param s1 
+/// @param s2 
+/// @param n 
+/// @return 
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
+/// @brief copia 
+/// @param dst 
+/// @param src 
+/// @param dstsize 
+/// @return 
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+/// @brief concatena src en dst con un tamaño bufer maximo de dstsize
+/// @param dst donde vamos a concatenar
+/// @param src lo que vamos a cpiar
+/// @param dstsize tamaño maximo 
+/// @return si no se pude return longitud de dst/src//copia despues del \0de dst
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+/// @brief 
+/// @param str 
+/// @return 
+int		ft_atoi(const char *str);
+/// @brief 
+/// @param s 
+/// @param n 
+void	ft_bzero(void *s, size_t n);
+/// @brief comparar dos cadenas
+/// @param s1 
+/// @param s2 
+/// @param n 
+/// @return entero indica si las cadenas son iguales o si una es mayor/menor. 
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+/// @brief busca una subcadena needle dentro de haystack,pero con longitud len
+/// @param haystack cadena donde busca 
+/// @param needle subcadena 
+/// @param len 
+/// @return puntero a 1ª ocurrencia de needle dentro de haystack,NULL si no 
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+/// @brief 
+/// @param count 
+/// @param size 
+/// @return returns a pointer to the allocated memory.
+void	*ft_calloc(size_t count, size_t size);
+/// @brief function allocates sufficient memory for a copy of the string s1
+/// @param s1 
+/// @return pointer to it may subsequently be used an argument to the function
+char	*ft_strdup(const char *s1);
 
 #endif
