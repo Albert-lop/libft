@@ -6,13 +6,13 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:17:07 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/03 17:58:21 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/03 18:14:23 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *str
 {
 	int	i;
 	int	neg;
