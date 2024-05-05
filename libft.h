@@ -6,13 +6,12 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:00:49 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/03 16:45:03 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/03 22:57:10 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
