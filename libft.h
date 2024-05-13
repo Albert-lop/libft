@@ -6,7 +6,7 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:00:49 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/08 13:56:16 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/13 20:28:33 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,4 +131,20 @@ char	*ft_strdup(const char *s1);
 /// @param set 
 /// @return 
 char	*ft_strtrim(char const *s1, char const *set);
+/// @brief 
+/// @param s 
+/// @param start 
+/// @param len 
+/// @return 
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+/// @brief 
+/// @param s 
+/// @param c 
+/// @return 
+char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
+void	ft_putchar_fd(char c, int fd);
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+
 #endif

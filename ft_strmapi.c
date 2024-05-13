@@ -1,35 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/05 20:02:54 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/13 17:38:54 by alberlop         ###   ########.fr       */
+/*   Created: 2024/05/13 20:20:21 by alberlop          #+#    #+#             */
+/*   Updated: 2024/05/13 20:20:33 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char	*sub_str;
-	size_t	i;
-	size_t	f;
+	char			*str;
+	unsigned int	i;
 
-	f = ft_strlen(s1);
-	i = 0;
-	while (ft_strchr(set, s1[i]) != NULL && i < f)
+	if (!s)
 	{
+		return (NULL);
+	}
+	str = (char *) malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!str)
+	{
+		return (NULL);
+	}
+	i = 0;
+	while (s[i])
+	{
+		str[i] = f(i, s[i]);
 		i++;
 	}
-	while (ft_strchr(set, s1[f]) != NULL && i < f)
-	{
-		f--;
-	}
-	sub_str = ft_substr(s1, i, f - i + 1);
-	if (!sub_str)
-		return (0);
-	return (sub_str);
+	str[i] = '\0';
+	return (str);
 }
