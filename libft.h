@@ -6,7 +6,7 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:00:49 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/03 22:57:10 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/08 13:56:16 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,5 +126,9 @@ void	*ft_calloc(size_t count, size_t size);
 /// @param s1 
 /// @return pointer to it may subsequently be used an argument to the function
 char	*ft_strdup(const char *s1);
-
+/// @brief 
+/// @param s1 
+/// @param set 
+/// @return 
+char	*ft_strtrim(char const *s1, char const *set);
 #endif
