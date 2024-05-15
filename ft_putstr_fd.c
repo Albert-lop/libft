@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchard_fd.c                                   :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/13 20:23:55 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/13 20:24:42 by alberlop         ###   ########.fr       */
+/*   Created: 2024/05/13 20:37:42 by alberlop          #+#    #+#             */
+/*   Updated: 2024/05/13 20:39:11 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, &c, 1);
+	if (!s)
+	{
+		return ;
+	}
+	write(fd, s, ft_strlen(s));
 }

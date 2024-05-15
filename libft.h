@@ -6,7 +6,7 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:00:49 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/13 20:28:33 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/15 16:49:53 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		ft_strlen(const char *str);
 /// @param c 
 /// @return un puntero al carácter ubicado,o NULL si el carácter no aparece
 char	*ft_strrchr(const char *s, int c);
-//// @brief Copia el valor de c en cada uno de los primeros n ve apuntado por s.
+/// @brief Copia el valor de c en cada uno de los primeros n ve apuntado por s.
 /// @param b 
 /// @param c 
 /// @param len 
@@ -117,14 +117,14 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 /// @param len 
 /// @return puntero a 1ª ocurrencia de needle dentro de haystack,NULL si no 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
-/// @brief 
+/// @brief function allocates sufficient memory for a copy of the string s1
 /// @param count 
 /// @param size 
 /// @return returns a pointer to the allocated memory.
 void	*ft_calloc(size_t count, size_t size);
-/// @brief function allocates sufficient memory for a copy of the string s1
+/// @brief duplica una cadena,reservando memoria y copiando contenido a la nueva
 /// @param s1 
-/// @return pointer to it may subsequently be used an argument to the function
+/// @return 
 char	*ft_strdup(const char *s1);
 /// @brief 
 /// @param s1 
@@ -137,14 +137,23 @@ char	*ft_strtrim(char const *s1, char const *set);
 /// @param len 
 /// @return 
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-/// @brief 
+/// @brief toma una cadena de caracteres y divide la cadena en array,separadas
 /// @param s 
 /// @param c 
 /// @return 
 char	**ft_split(char const *s, char c);
+///
 char	*ft_itoa(int n);
+///
 void	ft_putchar_fd(char c, int fd);
+///
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+///
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-
+///
+void	ft_putstr_fd(char *s, int fd);
+///
+void	ft_putendl_fd(char *s, int fd);
+char	*ft_strjoin(char const *s1, char const *s2);
+void	ft_putnbr_fd(int n, int fd);
 #endif
