@@ -7,11 +7,13 @@ SOURCES = \
 
 
 BSOURCES = \
+	ft_bonus_lstnew.c ft_bonus_lstaddfront.c  ft_bonus_lstsize.c ft_bonus_lstlast.c ft_bonus_lstsdd_back.c \
+	ft_bonus_lstdelone.c ft_bonus_lstclear.c ft_bonus_lstiter.c 
 	
 
 OBJECTS = $(SOURCES:.c=.o)
 BOBJECTS = $(BSOURSES:.c=.0)
-CC = gcc
+CC = clang
 CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME) 

@@ -6,7 +6,7 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:00:49 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/15 16:49:53 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/24 13:18:02 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@
 # include <unistd.h>
 # include <stddef.h>
 # include <string.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 /// @brief 
 /// @param c 
 /// @return return 1 si es un numero entero retur 0 si es otra cosa
@@ -142,18 +148,72 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 /// @param c 
 /// @return 
 char	**ft_split(char const *s, char c);
-///
+/// @brief 
+/// @param n 
+/// @return 
 char	*ft_itoa(int n);
-///
+/// @brief 
+/// @param c 
+/// @param fd 
 void	ft_putchar_fd(char c, int fd);
-///
+/// @brief 
+/// @param s 
+/// @param f 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
-///
+/// @brief 
+/// @param s 
+/// @param f 
+/// @return 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
-///
+/// @brief 
+/// @param s 
+/// @param fd 
 void	ft_putstr_fd(char *s, int fd);
-///
+/// @brief 
+/// @param s 
+/// @param fd 
 void	ft_putendl_fd(char *s, int fd);
+/// @brief 
+/// @param s1 
+/// @param s2 
+/// @return 
 char	*ft_strjoin(char const *s1, char const *s2);
+/// @brief 
+/// @param n 
+/// @param fd 
 void	ft_putnbr_fd(int n, int fd);
+/// @brief 
+/// @param content 
+/// @return 
+t_list	*ft_bonus_lstnew(void *content);
+/// @brief 
+/// @param lst 
+/// @param  
+void	ft_bonus_lstadd_front(t_list **lst, t_list *new);
+/// @brief 
+/// @param lst 
+/// @param  
+int		ft_bonus_lstsize(t_list *lst);
+/// @brief 
+/// @param lst 
+/// @param  
+void	ft_lstadd_back(t_list **lst, t_list *new);
+/// @brief 
+/// @param lst 
+/// @param del 
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+/// @brief 
+/// @param lst 
+/// @param del 
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+/// @brief 
+/// @param lst 
+/// @param f 
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+/// @brief 
+/// @param lst 
+/// @param f 
+/// @param del 
+/// @return 
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 #endif

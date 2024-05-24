@@ -1,15 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*    ft_bonus_lstsize.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 13:23:10 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/23 13:30:07 by alberlop         ###   ########.fr       */
+/*   Created: 2024/05/24 11:17:40 by alberlop          #+#    #+#             */
+/*   Updated: 2024/05/24 12:19:46 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-t_list *ft_lstnew(void *content)
+#include "libft.h"
+
+int	ft_bonus_lstsize(t_list *lst)
 {
-t_list  *new;
+	int	nbr;
+
+	nbr = 0;
+	while (lst != (void *)0)
+	{
+		nbr = lst->next;
+		nbr++;
+	}
+	return (nbr);
+}
