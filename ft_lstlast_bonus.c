@@ -6,7 +6,7 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 10:17:36 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/28 10:35:45 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/28 23:56:44 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ t_list	*ft_lstlast(t_list *lst)
 	while (lst ->next != NULL)
 	{
 		lst = lst-> next;
-	}	
+	}
 	return (lst);
 }

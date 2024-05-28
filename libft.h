@@ -6,7 +6,7 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:00:49 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/28 12:22:54 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/29 00:17:33 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,6 +248,10 @@ t_list	*ft_lstnew(void *content);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 /// @param lst 
 /// @param  
+void	ft_lstadd_front(t_list **lst, t_list *new);
+/// @brief 
+/// @param lst 
+/// @param  
 void	ft_lstadd_back(t_list **lst, t_list *new);
 /**
  * Clears a linked list by deleting all of its nodes and freeing the memory.
@@ -276,6 +280,10 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
  * @return The pointer to the last element of the linked list.
  */
 void	ft_lstiter(t_list *lst, void (*f)(void *));
+/// @brief 
+/// @param lst 
+/// @return 
+int		ft_lstsize(t_list *lst);
 /**
  * Applies the function `f` to each element of the linked
  *  list `lst` and creates a new
