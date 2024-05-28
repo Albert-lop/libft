@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bonus_lstnew.c                                  :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/23 13:23:10 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/24 10:15:15 by alberlop         ###   ########.fr       */
+/*   Created: 2024/05/28 10:18:07 by alberlop          #+#    #+#             */
+/*   Updated: 2024/05/28 10:59:05 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_bonus_lstnew(void *content)
+t_list	*ft_lstnew(void *content)
 {
-	t_list	*new;
+	t_list	*lst;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (new == NULL)
+	lst = malloc(sizeof(struct s_list));
+	if (!lst)
 		return (NULL);
-	new ->content = content;
-	new ->next = NULL;
-	return (NULL);
+	lst->content = content;
+	lst->next = NULL;
+	return (lst);
 }

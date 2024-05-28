@@ -1,34 +1,95 @@
-NAME = libft.a
-SOURCES = \
-	main.c ft_isalpha.c ft_isalnum.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_tolower.c ft_toupper.c ft_strrchr.c\
-	ft_strchr.c ft_strlen.c ft_memcpy.c ft_memset.c ft_memmove.c ft_memcmp.c ft_memchr.c ft_strlcpy.c ft_strlcat.c\
-	ft_atoi.c ft_bzero.c ft_strncmp.c ft_strnstr.c ft_calloc.c ft_strdup.c ft_substr.c ft_strtrim.c ft_split.c ft_itoa.c\
-	ft_strmapi.c ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_strjoin.c ft_putendl_fd.c ft_putnbr_fd.c ft_putendl_fd.c\
+NAME := libft.a
+CC := cc
+CC_FLAGS := -Wall -Werror -Wextra
+
+#AR SYSTEM
+AR := ar
+AR_FLAGS := -csr
+
+# Lista de archivos fuente (.c)
+FT_FILES := ft_atoi.c \
+ft_bzero.c \
+ft_calloc.c \
+ft_isalnum.c \
+ft_isalpha.c \
+ft_memchr.c \
+ft_isascii.c \
+ft_isdigit.c \
+ft_isprint.c \
+ft_memcpy.c \
+ft_memcmp.c \
+ft_memmove.c \
+ft_memset.c \
+ft_strchr.c \
+ft_strdup.c \
+ft_strjoin.c \
+ft_strlcat.c \
+ft_strlcpy.c \
+ft_strlen.c \
+ft_strncmp.c \
+ft_strnstr.c \
+ft_strrchr.c \
+ft_strtrim.c \
+ft_substr.c \
+ft_tolower.c \
+ft_toupper.c \
+ft_itoa.c \
+ft_putchar_fd.c \
+ft_putendl_fd.c \
+ft_putnbr_fd.c \
+ft_putstr_fd.c \
+ft_split.c \
+ft_striteri.c \
+ft_strmapi.c \
+
+FT_FILES_BONUS := ft_lstnew_bonus.c \
+ft_lstadd_front_bonus.c \
+ft_lstsize_bonus.c \
+ft_lstlast_bonus.c \
+ft_lstadd_back_bonus.c \
+ft_lstdelone_bonus.c \
+ft_lstclear_bonus.c \
+ft_lstiter_bonus.c \
+ft_lstmap_bonus.c \
 
 
-BSOURCES = \
-	ft_bonus_lstnew.c ft_bonus_lstaddfront.c  ft_bonus_lstsize.c ft_bonus_lstlast.c ft_bonus_lstsdd_back.c \
-	ft_bonus_lstdelone.c ft_bonus_lstclear.c ft_bonus_lstiter.c 
-	
+#Archivo de testeo para funciones
+FT_FTEST := main.c
 
-OBJECTS = $(SOURCES:.c=.o)
-BOBJECTS = $(BSOURSES:.c=.0)
-CC = clang
-CFLAGS = -Wall -Wextra -Werror
+#Solamente para usar la libreria en main.c
+INCLUDES := libft.h
 
-all: $(NAME) 
+# Generar nombres de archivos objeto (.o)
+OBJ := $(FT_FILES:%.c=%.o)
+OBJ_BONUS := $(FT_FILES_BONUS:%.c=%.o)
+#Creación librería
+all: $(NAME)
+$(NAME) : $(OBJ)
+	$(AR) $(AR_FLAGS) $(NAME) $?
 
-$(NAME): $(OBJECTS)
-	$(AR) -r $@ $?
-
+#Creación archivos objeto
 %.o: %.c
-	$(CC) -c $(CFLAGS) $?
+	$(CC) $(CC_FLAGS) -c -o $@ $<
 
-clean:
-	rm -f $(OBJECTS) 
-fclean: clean
+#Clean
+clean :
+	rm -f $(OBJ) $(OBJ_BONUS)
+
+#FClean
+fclean : clean
 	rm -f $(NAME)
 
-re: fclean all
+#FClean y rehacer todo
+re : fclean all
 
-.PHONY: all clean fclean re
+bonus: $(NAME)
+$(NAME) : $(OBJ) $(OBJ_BONUS)
+	$(AR) $(AR_FLAGS) $(NAME) $?
+
+test:  all
+	$(CC) $(CC_FLAGS) -I $(INCLUDES) -o $@ main.c $(NAME)
+	$(clean)
+
+testc: all test clean
+
+.PHONY: all clean fclean re test bonus
