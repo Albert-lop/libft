@@ -1,5 +1,5 @@
 NAME := libft.a
-CC := cc
+CC := clang
 CC_FLAGS := -Wall -Werror -Wextra
 
 #AR SYSTEM

@@ -6,7 +6,7 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 13:00:49 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/29 00:17:33 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/29 18:50:13 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ void	*ft_memmove(void *dst, const void *src, size_t n);
 /// character (\0)
 void	*ft_memchr(const void *s, int c, size_t n);
 ///@brief compares byte string s1 agains byte string s2. 
-///assumed to be n bytes long
+///assumed to be n bytes longfrancinette
 ///@param s1 first str 
 ///@param s2 second str
 ///@param n number of bytes to compare

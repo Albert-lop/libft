@@ -6,83 +6,92 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 19:22:26 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/13 20:12:55 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/29 19:05:20 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_words(const char *s, char c)
+static char	*ft_strndup(const char *src, size_t n)
 {
-	int	cont;
-	int	check;
-
-	cont = 0;
-	check = 0;
-	while (*s)
-	{
-		if (*s != c && check == 0)
-		{
-			cont++;
-			check = 1;
-		}
-		else if (*s == c)
-			check = 0;
-		s++;
-	}
-	return (cont);
-}
-
-static	char	**ft_freemem(char **ptr, size_t i)
-{
-	while (i--)
-		free(ptr[i]);
-	free(ptr);
-	return (NULL);
-}
-
-static void	ft_fill_split(char **ptr, const char *s, int c, size_t len)
-{
+	char	*dup;
 	size_t	i;
-	size_t	j;
-	int		start;
 
+	dup = malloc(n + 1);
+	if (!dup)
+		return (NULL);
 	i = 0;
-	j = 0;
-	start = -1;
-	while (i <= len)
+	while (i < n && src[i])
 	{
-		if (s[i] != c && start < 0)
-			start = i;
-		else if ((s[i] == c || i == len) && start >= 0)
-		{
-			ptr[j] = ft_substr(s, start, i - start);
-			if (ptr[j] == NULL)
-			{
-				ft_freemem(ptr, j - 1);
-				return ;
-			}
-			j++;
-			start = -1;
-		}
+		dup[i] = src[i];
 		i++;
 	}
-	ptr[j] = NULL;
+	dup[i] = '\0';
+	return (dup);
+}
+
+static int	num_words(const char *s, char c)
+{
+	int	num;
+
+	num = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			num++;
+			while (*s && *s != c)
+				s++;
+			if (!*s)
+				break ;
+		}
+		s++;
+	}
+	return (num);
+}
+
+static char	*get_next_word(const char **s, char c)
+{
+	const char	*start;
+	const char	*end;
+
+	start = *s;
+	while (*start && *start == c)
+		start++;
+	end = start;
+	while (*end && *end != c)
+		end++;
+	if (start == end)
+		return (NULL);
+	*s = end;
+	return (ft_strndup(start, end - start));
 }
 
 char	**ft_split(char const *s, char c)
 {
-	int		words;
-	size_t	len;
-	char	**ptr;
+	int		word_num;
+	char	**res;
+	int		i;
 
 	if (!s)
 		return (NULL);
-	len = ft_strlen(s);
-	words = ft_count_words(s, c);
-	ptr = (char **) malloc(sizeof(char *) * (words + 1));
-	if (!ptr)
+	word_num = num_words(s, c);
+	res = malloc((word_num + 1) * sizeof(char *));
+	if (!res)
 		return (NULL);
-	ft_fill_split(ptr, s, c, len);
-	return (ptr);
+	i = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			res[i] = get_next_word(&s, c);
+			if (!res[i])
+				break ;
+			i++;
+		}
+		else
+			s++;
+	}
+	res[i] = NULL;
+	return (res);
 }
