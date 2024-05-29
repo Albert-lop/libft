@@ -6,83 +6,65 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/13 19:22:26 by alberlop          #+#    #+#             */
-/*   Updated: 2024/05/29 19:23:17 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/05/29 19:37:18 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_count_words(const char *s, char c)
+static size_t	ft_numwords(const char *s, char c)
 {
-	int	cont;
-	int	check;
+	size_t	words;
 
-	cont = 0;
-	check = 0;
+	words = 0;
 	while (*s)
 	{
-		if (*s != c && check == 0)
+		if (*s != c)
 		{
-			cont++;
-			check = 1;
+			words++;
+			while (*s && *s != c)
+				++s;
 		}
-		else if (*s == c)
-			check = 0;
-		s++;
+		else
+			++s;
 	}
-	return (cont);
+	return (words);
 }
 
-static	char	**ft_freemem(char **ptr, size_t i)
-{
-	while (i--)
-		free(ptr[i]);
-	free(ptr);
-	return (NULL);
-}
-
-static void	ft_fill_split(char **ptr, const char *s, int c, size_t len)
+static void	free_split(char **split)
 {
 	size_t	i;
-	size_t	j;
-	int		start;
 
 	i = 0;
-	j = 0;
-	start = -1;
-	while (i <= len)
-	{
-		if (s[i] != c && start < 0)
-			start = i;
-		else if ((s[i] == c || i == len) && start >= 0)
-		{
-			ptr[j] = ft_substr(s, start, i - start);
-			if (ptr[j] == NULL)
-			{
-				ft_freemem(ptr, j - 1);
-				return ;
-			}
-			j++;
-			start = -1;
-		}
-		i++;
-	}
-	ptr[j] = NULL;
+	while (split[i])
+		free(split[i++]);
+	free(split);
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(const char *s, char c)
 {
-	int		words;
+	char	**ret;
+	size_t	i;
 	size_t	len;
-	char	**ptr;
 
-	if (!s)
-		return (NULL);
-	len = ft_strlen(s);
-	words = ft_count_words(s, c);
-	ptr = (char **) malloc(sizeof(char *) * (words + 1));
-	if (!ptr)
-		return (NULL);
-	ft_fill_split(ptr, s, c, len);
-	return (ptr);
+	ret = malloc(sizeof(char *) * (ft_numwords(s, c) + 1));
+	if (!s || !ret)
+		return (0);
+	i = 0;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			len = 0;
+			while (*s && *s != c && ++len)
+				++s;
+			ret[i++] = ft_substr(s - len, 0, len);
+			if (!ret[i - 1])
+				return (free_split(ret), NULL);
+		}
+		else
+			++s;
+	}
+	ret[i] = 0;
+	return (ret);
 }

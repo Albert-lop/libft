@@ -38,6 +38,10 @@ ft_putstr_fd.c \
 ft_split.c \
 ft_striteri.c \
 ft_strmapi.c \
+ft_strtrim.c\
+ft_strnstr.c\
+ft_strchr.c\
+
 
 FT_FILES_BONUS := ft_lstnew_bonus.c \
 ft_lstadd_front_bonus.c \
