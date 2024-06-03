@@ -40,7 +40,7 @@ ft_striteri.c \
 ft_strmapi.c \
 ft_strtrim.c\
 ft_strnstr.c\
-ft_strchr.c\
+ft_strrchr.c\
 
 
 FT_FILES_BONUS := ft_lstnew_bonus.c \
