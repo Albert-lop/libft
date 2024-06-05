@@ -6,13 +6,13 @@
 /*   By: alberlop <alberlop@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 11:17:45 by alberlop          #+#    #+#             */
-/*   Updated: 2024/04/16 20:29:01 by alberlop         ###   ########.fr       */
+/*   Updated: 2024/06/05 18:17:04 by alberlop         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(const char *str)
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 
